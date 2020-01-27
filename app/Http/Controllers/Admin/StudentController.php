@@ -10,14 +10,28 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $students = User::all();
+        $perPage = request()->perPage ?: 10;
+        $keyword = request()->keyword;
 
-        dd($students->toArray());
+        $students = new  User();
+
+        if ($keyword){
+
+            $keyword = '%'.request()->keyword.'%';
+
+            $students = $students->where('name', 'like', $keyword)
+                ->orWhere('mobile', 'like', $keyword)
+                ->orWhere('admit_card', 'like', $keyword);
+        }
+
+        $students = $students->latest()->paginate($perPage);
+
+        return view('admin.user.index', compact('students'));
     }
 
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     public function store(Request $request)

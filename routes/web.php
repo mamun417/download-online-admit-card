@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('admin.home');
-});
+});*/
 
 //Auth::routes();
 
@@ -22,6 +22,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Admin route
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
+
+    // Dashboard
+    Route::get('/', function () {
+        return view('admin.home');
+    });
 
     // Users
     Route::resource('students', 'Admin\StudentController');

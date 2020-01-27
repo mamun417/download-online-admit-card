@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-meta')
-    <title>Admin Panel - ExonHost</title>
+    <title>Admin Panel - {{ env('APP_NAME', 'Project Name') }}</title>
 @endsection
 
 @section('content')

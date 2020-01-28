@@ -8,25 +8,15 @@
 <!-- apps -->
 <script src="{{ asset('dist/js/app.min.js') }}"></script>
 <script src="{{ asset('dist/js/app.init.js') }}"></script>
-<script src="{{ asset('dist/js/app-style-switcher.js') }}"></script>
 <!-- slimscrollbar scrollbar JavaScript -->
 <script src="{{ asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
 <script src="{{ asset('assets/extra-libs/sparkline/sparkline.js') }}"></script>
-<!--Wave Effects -->
-<script src="{{ asset('dist/js/waves.js') }}"></script>
+
 <!--Menu sidebar -->
 <script src="{{ asset('dist/js/sidebarmenu.js') }}"></script>
 <!--Custom JavaScript -->
 <script src="{{ asset('dist/js/custom.min.js') }}"></script>
 <!--This page JavaScript -->
-<!--c3 charts -->
-<script src="{{ asset('assets/extra-libs/c3/d3.min.js') }}"></script>
-<script src="{{ asset('assets/extra-libs/c3/c3.min.js') }}"></script>
-<script src="{{ asset('assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js') }}"></script>
-<script src="{{ asset('assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js') }}"></script>
-
-{{--Knob Chart--}}
-<script src="{{ asset('assets/extra-libs/knob/jquery.knob.min.js') }}"></script>
 
 {{--Summernote editor--}}
 <script src="{{ asset('assets/libs/summernote/dist/summernote-bs4.min.js') }}"></script>
@@ -43,11 +33,11 @@
     {
         // Sweet alert
         @if(session('successMsg'))
-        Swal.fire("Successful!", "{{ session('successMsg') }}", "success");
+            Swal.fire("Successful!", "{{ session('successMsg') }}", "success");
         @endif
 
-        @if(session('error'))
-        Swal.fire("Warning!", "{{ session('error') }}", "error");
+        @if(session('errorMsg'))
+            Swal.fire("Warning!", "{{ session('error') }}", "error");
         @endif
     });
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-meta')
-    <title>Students - {{ env('APP_NAME', 'Project Name') }}</title>
+    <title>Users - {{ env('APP_NAME', 'Project Name') }}</title>
 @endsection
 
 @section('content')
@@ -9,12 +9,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Students</h4>
+                <h4 class="page-title">Users</h4>
             </div>
             <div class="col-7 align-self-center">
                 <div class="d-flex align-items-center justify-content-end">
                     <nav aria-label="breadcrumb">
-                        <a href="{{ route('admin.students.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Add New Student</a>
+                        <a href="{{ route('admin.users.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Add New User</a>
                     </nav>
                 </div>
             </div>
@@ -29,7 +29,7 @@
 
                         <div class="table-responsive">
                             <div class="col-sm-12">
-                                <form action="{{ route('admin.students.index') }}" method="get" class="">
+                                <form action="{{ route('admin.users.index') }}" method="get" class="">
 
                                     <div class="row">
                                         <div class="form-group mr-1">
@@ -59,9 +59,9 @@
                                 <table id="zero_config" class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">Name</th>
-                                            <th class="text-center">Mobile</th>
-                                            <th class="text-center">Admit Card</th>
+                                            <th>Name</th>
+                                            <th>Mobile</th>
+                                            <th>Admit Card</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -69,19 +69,19 @@
                                     <tbody>
                                         @foreach($students as $student)
 
-                                            <tr class="text-center">
+                                            <tr>
                                                 <td>{{ $student->name }}</td>
                                                 <td>{{ $student->mobile }}</td>
                                                 <td>{{ $student->admit_card }}</td>
                                                 <td style="text-align: center">
-                                                    <a href="{{ route('admin.students.edit', $student->id) }}" title="Edit" class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Edit</a>
+                                                    <a href="{{ route('admin.users.edit', $student->id) }}" title="Edit" class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Edit</a>
                                                     <a onclick="deleteRow({{ $student->id }})" href="JavaScript:void(0)" title="Delete" class="btn btn-sm btn-danger">
                                                         <i class="ti-trash"></i> Delete
                                                     </a>
                                                 </td>
                                             </tr>
 
-                                            <form id="delete-form{{ $student->id }}" method="POST" action="{{ route('admin.students.destroy', $student->id) }}" style="display: none" >
+                                            <form id="delete-form{{ $student->id }}" method="POST" action="{{ route('admin.users.destroy', $student->id) }}" style="display: none" >
                                                 @method('DELETE')
                                                 @csrf()
                                             </form>
@@ -91,7 +91,7 @@
 
                                 </table>
                             @else
-                                <div class="alert alert-custom mb-0">No Student Found</div>
+                                <div class="alert alert-custom mb-2">No Student Found</div>
                             @endif
                         </div>
 

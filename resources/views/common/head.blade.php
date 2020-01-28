@@ -8,18 +8,10 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
 
-@yield('custom-meta')
-
-<!-- Custom CSS -->
-    <link href="{{ asset('assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/extra-libs/c3/c3.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
+    @yield('custom-meta')
 
     {{--Summernote editor--}}
     <link href="{{ asset('assets/libs/summernote/dist/summernote-bs4.css') }}" rel="stylesheet" />
-
-    {{--Data table--}}
-    <link href="{{ asset('assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
 
     {{--Switch button--}}
     <link href="{{ asset('assets/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css') }}" rel="stylesheet">
@@ -34,7 +26,6 @@
 
     {{--Switch Button--}}
     <script src="{{ asset('assets/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js') }}"></script>
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

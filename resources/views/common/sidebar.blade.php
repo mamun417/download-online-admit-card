@@ -16,8 +16,8 @@
                 </li>
 
                 <li class="sidebar-item {{ $cur_controller_name == 'StudentController'?'selected':'' }}">
-                    <a href="{{ route('admin.students.index') }}" class="sidebar-link waves-effect waves-dark sidebar-link {{ $cur_controller_name == 'StudentController'?'active':'' }}" aria-expanded="false">
-                        <i class="mdi mdi-account"></i>
+                    <a href="{{ route('admin.users.index') }}" class="sidebar-link waves-effect waves-dark sidebar-link {{ $cur_controller_name == 'StudentController'?'active':'' }}" aria-expanded="false">
+                        <i class="mdi mdi-account-multiple"></i>
                         <span class="hide-menu">Users</span>
                     </a>
                 </li>

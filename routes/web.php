@@ -1,31 +1,36 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::group(['middleware' => 'auth'], function (){
 
-/*Route::get('/', function () {
-    return view('admin.home');
+    Route::get('/', function () {
+        return view('home');
+    });
 });
 
-Auth::routes();*/
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false
+]);
+
+
 
 
 //Admin route
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
+    Auth::routes(['register' => false]);
+});
+
+Route::group(['middleware' => 'auth', 'as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::get('/', function () {
         return view('admin.home');
     });
 
-    Route::resource('users', 'Admin\UserController');
+    Route::resource('users', 'UserController');
+
+    Route::get('password/change', 'UserController@changePassword')->name('password.change');
+    Route::post('password/change', 'UserController@updatePassword')->name('password.change');
 });
 
 

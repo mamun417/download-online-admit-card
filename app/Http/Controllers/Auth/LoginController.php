@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo;
 
     /**
      * Create a new controller instance.
@@ -35,6 +36,46 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        // check admin or user
+        if (\Request::is('admin*')){
+            $this->redirectTo = '/admin';
+        }else {
+            $this->redirectTo = '/';
+        }
+
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        if (\Request::is('admin*')){
+            return 'email';
+        }
+
+        return 'mobile';
+    }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function logout(Request $request)
+    {
+        $role_id = Auth::user()->role_id;
+
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return $this->loggedOut($request) ?: ( $role_id == 1 ? redirect(route('admin.login')) : redirect('/'));
     }
 }

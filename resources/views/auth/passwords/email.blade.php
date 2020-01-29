@@ -1,13 +1,12 @@
-@extends('client_auth.layouts.app')
+@extends('auth.layouts.app')
 
 @section('custom-meta')
-    <title>Lost Password Reset - ExonHost</title>
+    <title>Lost Password Reset - {{ env('APP_NAME', 'Project Name') }}</title>
 @endsection
 
 @section('content')
 
-    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
-         style="background:url({{ url('assets/images/big/auth-bg.jpg') }}) no-repeat center center;">
+    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url({{ url('assets/images/big/auth-bg.jpg') }}) no-repeat center center;">
 
         <div class="auth-box">
 

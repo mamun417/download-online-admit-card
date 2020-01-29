@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Auth;
 use Hash;
 use Illuminate\Http\Request;
 use Storage;
@@ -27,7 +28,7 @@ class UserController extends Controller
                 ->orWhere('admit_card', 'like', $keyword);
         }
 
-        $students = $students->latest()->paginate($perPage);
+        $students = $students->where('role_id', '!=', 1)->latest()->paginate($perPage);
 
         return view('admin.user.index', compact('students'));
     }
@@ -96,5 +97,28 @@ class UserController extends Controller
 
         $user->delete();
         return back()->with('successMsg', 'User has been deleted successfully');
+    }
+
+    public function changePassword(){
+        return view('auth.passwords.change-password');
+    }
+
+    public function updatePassword(Request $request){
+
+        $request->validate([
+            'currentPassword' => 'required',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required',
+        ]);;
+
+        $find_user = User::find(Auth::user()->id);
+
+        if(!Hash::check($request->currentPassword, $find_user->password)){
+            return back()->with('invalid_current_pass', 'Invalid current password');
+        }
+
+        $find_user->update(['password' =>  Hash::make($request->password)]);
+
+        return back()->with('successMsg', 'Password has been changed successfully');
     }
 }

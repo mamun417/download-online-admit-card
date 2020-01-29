@@ -34,14 +34,14 @@
                 @php
                     // Gravatar API for Admin Photo
 
-                    /*$hash = md5(strtolower(trim(Auth::user()->email)));
-                    $client_photo = "https://www.gravatar.com/avatar/$hash";*/
+                    $hash = md5(strtolower(trim(Auth::user()->email)));
+                    $client_photo = "https://www.gravatar.com/avatar/$hash";
                 @endphp
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="{{ isset($client_photo) && !is_null($client_photo) ? $client_photo : asset('assets/images/users/2.jpg') }}" alt="user" class="rounded-circle" width="40">
-                        <span class="m-l-5 font-medium d-none d-sm-inline-block"><b>Abdullah Al Mamun</b>{{--{{ Auth::user()->name }}--}} <i class="mdi mdi-chevron-down"></i></span>
+                        <span class="m-l-5 font-medium d-none d-sm-inline-block text-secondary">{{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right user-dd">
                                 <span class="with-arrow">
@@ -52,19 +52,21 @@
                                 <img src="{{ isset($client_photo) && !is_null($client_photo) ? $client_photo : asset('assets/images/avatar.png') }}" alt="user" class="rounded-circle" width="60">
                             </div>
                             <div class="m-l-10">
-                                <h4 class="m-b-0">Abdullah Al Mamun {{--{{ Auth::user()->name }}--}}</h4>
-                                <p class=" m-b-0">01750 800764{{--{{ Auth::user()->email }}--}}</p>
+                                <h4 class="m-b-0">{{ Auth::user()->name }}</h4>
+                                <p class=" m-b-0">{{ Auth::user()->email }}</p>
                             </div>
                         </div>
                         <div class="profile-dis scrollable">
-                            <a class="dropdown-item" href="#{{--{{ route('change.password') }}--}}">
-                                <i class="ti-key m-r-5 m-l-5"></i> Change Password</a>
-                            <div class="dropdown-divider"></div>
-                            <button onclick="event.preventDefault();document.getElementById('backend-logout-form').submit();" class="dropdown-item">
+                            @if(Auth::user()->role_id == 1)
+                                <a class="dropdown-item" href="{{ route('admin.password.change') }}">
+                                    <i class="ti-key m-r-5 m-l-5"></i> Change Password</a>
+                                <div class="dropdown-divider"></div>
+                            @endif
+                            <button onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item">
                                 <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</button>
                             <div class="dropdown-divider"></div>
 
-                            <form id="backend-logout-form" action="{{--{{ route('backend.logout') }}--}}" method="POST" style="display: none">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                                 @csrf
 
                             </form>

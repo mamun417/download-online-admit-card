@@ -9,19 +9,20 @@
             <ul id="sidebarnav">
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark" href="/admin" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark" href="{{ Auth::user()->role_id == 1 ? route('admin.') : '/' }}" aria-expanded="false">
                         <i class="mdi mdi-av-timer"></i>
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item {{ $cur_controller_name == 'StudentController'?'selected':'' }}">
-                    <a href="{{ route('admin.users.index') }}" class="sidebar-link waves-effect waves-dark sidebar-link {{ $cur_controller_name == 'StudentController'?'active':'' }}" aria-expanded="false">
-                        <i class="mdi mdi-account-multiple"></i>
-                        <span class="hide-menu">Users</span>
-                    </a>
-                </li>
-
+                @if(Auth::user()->role_id == 1)
+                    <li class="sidebar-item {{ $cur_controller_name == 'StudentController'?'selected':'' }}">
+                        <a href="{{ route('admin.users.index') }}" class="sidebar-link waves-effect waves-dark sidebar-link {{ $cur_controller_name == 'StudentController'?'active':'' }}" aria-expanded="false">
+                            <i class="mdi mdi-account-multiple"></i>
+                            <span class="hide-menu">Users</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
     </div>

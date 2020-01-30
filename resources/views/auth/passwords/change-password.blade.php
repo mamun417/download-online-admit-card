@@ -31,45 +31,47 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                            <form class="form pt-3" action="{{ route('admin.password.change') }}" method="post" role="form">
-                            @csrf
+                        <form class="form pt-3" action="{{ route('password.change') }}" method="post" role="form">
+                        @csrf
 
-                            <div class="form-group">
-                                <label>Current Password</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon11"><i class="ti-lock"></i></span>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Current Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon11"><i class="ti-lock"></i></span>
+                                        </div>
+                                        <input type="password" name="currentPassword" class="form-control" aria-label="Username" aria-describedby="basic-addon11" required>
                                     </div>
-                                    <input type="password" name="currentPassword" class="form-control" aria-label="Username" aria-describedby="basic-addon11" required>
+                                    @if($errors->has('currentPassword')) <span class="text-danger">{{ $errors->first('currentPassword') }}</span> @endif
+                                    @if(session('invalid_current_pass')) <span class="text-danger">{{ session('invalid_current_pass') }}</span> @endif
                                 </div>
-                                @if($errors->has('currentPassword')) <span class="text-danger">{{ $errors->first('currentPassword') }}</span> @endif
-                                @if(session('invalid_current_pass')) <span class="text-danger">{{ session('invalid_current_pass') }}</span> @endif
-                            </div>
 
-                            <div class="form-group">
-                                <label>Password</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon33"><i class="ti-lock"></i></span>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon33"><i class="ti-lock"></i></span>
+                                        </div>
+                                        <input minlength="8" type="password" name="password" class="form-control" aria-label="Password" aria-describedby="basic-addon33" required>
                                     </div>
-                                    <input minlength="8" type="password" name="password" class="form-control" aria-label="Password" aria-describedby="basic-addon33" required>
+                                    @if($errors->has('password')) <span class="text-danger">{{ $errors->first('password') }}</span> @endif
                                 </div>
-                                @if($errors->has('password')) <span class="text-danger">{{ $errors->first('password') }}</span> @endif
-                            </div>
 
-                            <div class="form-group">
-                                <label>Confirm Password</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon4"><i class="ti-lock"></i></span>
+                                <div class="form-group">
+                                    <label>Confirm Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon4"><i class="ti-lock"></i></span>
+                                        </div>
+                                        <input type="password" name="password_confirmation" class="form-control" aria-label="Password" aria-describedby="basic-addon4" required>
                                     </div>
-                                    <input type="password" name="password_confirmation" class="form-control" aria-label="Password" aria-describedby="basic-addon4" required>
+                                    @if($errors->has('password_confirmation')) <span class="text-danger">{{ $errors->first('password_confirmation') }}</span> @endif
                                 </div>
-                                @if($errors->has('password_confirmation')) <span class="text-danger">{{ $errors->first('password_confirmation') }}</span> @endif
-                            </div>
 
-                            <button type="submit" class="btn btn-success mr-2">Save Changes</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-dark">Cancel</a>
+                                <button type="submit" class="btn btn-success mr-2">Save Changes</button>
+                                <a href="{{ url()->previous() }}" class="btn btn-dark">Cancel</a>
+                            </div>
                         </form>
                     </div>
                 </div>

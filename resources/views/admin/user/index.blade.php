@@ -114,5 +114,16 @@
 
 @endsection
 
+@section('custom-js')
+    <script>
 
+        $(function()
+        {
+            $.get('http://gosms.xyz/api/v1/sendSms?username=mamun&password=banglaDesh1235&number=01950277082&sms_content=Message jai kno re&sms_type=1&masking=non-masking', function (response) {
+                console.log(response);
+            });
+        });
+
+    </script>
+@endsection
 

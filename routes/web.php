@@ -1,10 +1,13 @@
 <?php
 
-Route::group(['middleware' => 'auth'], function (){
+Route::group(['middleware' => ['auth', 'preventBackHistory']], function (){
 
     Route::get('/', function () {
         return view('home');
     });
+
+    Route::get('password/change', 'Admin\UserController@changePassword')->name('password.change');
+    Route::post('password/change', 'Admin\UserController@updatePassword')->name('password.change');
 });
 
 Auth::routes([
@@ -20,7 +23,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     Auth::routes(['register' => false]);
 });
 
-Route::group(['middleware' => 'auth', 'as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['middleware' => ['auth', 'admin', 'preventBackHistory'], 'as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::get('/', function () {
         return view('admin.home');
@@ -28,8 +31,8 @@ Route::group(['middleware' => 'auth', 'as' => 'admin.', 'prefix' => 'admin', 'na
 
     Route::resource('users', 'UserController');
 
-    Route::get('password/change', 'UserController@changePassword')->name('password.change');
-    Route::post('password/change', 'UserController@updatePassword')->name('password.change');
+    /*Route::get('password/change', 'UserController@changePassword')->name('password.change');
+    Route::post('password/change', 'UserController@updatePassword')->name('password.change');*/
 });
 
 

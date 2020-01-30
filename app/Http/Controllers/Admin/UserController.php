@@ -14,6 +14,8 @@ class UserController extends Controller
 {
     public function index()
     {
+        //$this->sendSMS();
+
         $perPage = request()->perPage ?: 10;
         $keyword = request()->keyword;
 
@@ -153,8 +155,32 @@ class UserController extends Controller
             return back()->with('invalid_current_pass', 'Invalid current password');
         }
 
-        $find_user->update(['password' =>  Hash::make($request->password)]);
+        $find_user->update(['password' => Hash::make($request->password)]);
 
         return back()->with('tSuccessMsg', 'Password has been changed successfully');
+    }
+
+    public function sendSMS(){
+
+        $user_name = 'mamun';
+        $password = 'banglaDesh1235';
+        $number = '01950277082';
+        $sms_content = 'Test message content';
+
+        $url = "http://gosms.xyz/api/v1/sendSms?username=$user_name&password=$password&number=$number&sms_content=$sms_content&sms_type=1&masking=non-masking";
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $httpResponse = curl_exec($ch);
+
+        dd($httpResponse);
+
+        $response = json_decode($httpResponse, true);
+
+        dd($response);
     }
 }

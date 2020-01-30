@@ -56,11 +56,11 @@
                             </div>
                         </div>
                         <div class="profile-dis scrollable">
-                            @if(Auth::user()->role_id == 1)
-                                <a class="dropdown-item" href="{{ route('admin.password.change') }}">
+                           {{-- @if(Auth::user()->role_id == 1)--}}
+                                <a class="dropdown-item" href="{{ route('password.change') }}">
                                     <i class="ti-key m-r-5 m-l-5"></i> Change Password</a>
                                 <div class="dropdown-divider"></div>
-                            @endif
+                           {{-- @endif--}}
                             <button onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item">
                                 <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</button>
                             <div class="dropdown-divider"></div>

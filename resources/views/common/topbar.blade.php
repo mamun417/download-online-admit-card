@@ -6,7 +6,7 @@
             </a>
 
             <div class="navbar-brand">
-                <a href="{{--{{ route('backend.dashboard') }}--}}" class="logo">
+                <a href="" class="logo">
                     <!-- Logo text -->
                     <span class="logo-icon">
                         <img src="{{ url('assets/images/logo.png') }}" height="22px" width="100%" class="light-logo" alt="homepage" />
@@ -33,7 +33,6 @@
 
                 @php
                     // Gravatar API for Admin Photo
-
                     $hash = md5(strtolower(trim(Auth::user()->email)));
                     $client_photo = "https://www.gravatar.com/avatar/$hash";
                 @endphp

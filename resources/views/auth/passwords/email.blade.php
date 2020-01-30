@@ -17,21 +17,15 @@
             <h5 class="font-medium m-b-20 m-t-15">Recover Password</h5>
             <span>Enter your Email and instructions will be sent to you!</span>
 
-            @if(session('successMsg'))
+            @if(session('status'))
                 <div class="alert alert-success mt-3">
-                    {{ session('successMsg') }}
-                </div>
-            @endif
-
-            @if(session('error'))
-                <div class="alert alert-danger mt-3">
-                    {{ session('error') }}
+                    {{ session('status') }}
                 </div>
             @endif
 
         </div>
         <div class="row m-t-20">
-            <form action="{{ route('password.email') }}" class="col-12" method="post">
+            <form action="{{ route('admin.password.email') }}" class="col-12" method="post">
                 @csrf
 
                 <div class="form-group">

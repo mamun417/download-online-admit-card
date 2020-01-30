@@ -4,6 +4,8 @@
       <w>addon</w>
       <w>enderror</w>
       <w>endsection</w>
+      <w>sweetalert</w>
+      <w>toastr</w>
     </words>
   </dictionary>
 </component>

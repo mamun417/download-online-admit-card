@@ -69,7 +69,7 @@ class UserController extends Controller
             'password' => Hash::make($password)
         ]);
 
-        return redirect(route('admin.users.index'))->with('successMsg', 'User has been added successfully.');
+        return redirect(route('admin.users.index'))->with('tSuccessMsg', 'User has been added successfully.');
     }
 
     public function show(User $user)
@@ -79,12 +79,48 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        //
+        return view('admin.user.edit', compact('user'));
     }
 
     public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name' => 'sometimes|max:255',
+            'mobile' => 'required|numeric|unique:users,mobile,'.$user->id,
+            'admit_card' => 'sometimes|nullable|mimes:pdf'
+        ]);
+
+        $data = [
+            'name' => $request['name'],
+            'mobile' => $request['mobile']
+        ];
+
+        if ($request->hasFile('admit_card')) {
+
+            $admit_card = $request->file('admit_card');
+
+            $admit_name = strtolower($request->mobile.'_'.$admit_card->getClientOriginalName());
+
+            $directory = 'uploads/admit-card';
+
+            //delete old admit card
+            if (Storage::disk('public')->exists($directory.'/'.$user->admit_card)){
+                Storage::disk('public')->delete($directory.'/'.$user->admit_card);
+            }
+
+            // check is exits directory
+            if (!Storage::disk('public')->exists($directory)){
+                Storage::disk('public')->makeDirectory($directory);
+            }
+
+            Storage::disk('public')->putFileAs($directory, $admit_card, $admit_name);
+
+            $data['admit_card'] = $admit_name;
+        }
+
+        $user->update($data);
+
+        return redirect(route('admin.users.index'))->with('tSuccessMsg', 'User has been updated successfully.');
     }
 
     public function destroy(User $user)
@@ -96,7 +132,7 @@ class UserController extends Controller
         }
 
         $user->delete();
-        return back()->with('successMsg', 'User has been deleted successfully');
+        return back()->with('tSuccessMsg', 'User has been deleted successfully');
     }
 
     public function changePassword(){
@@ -119,6 +155,6 @@ class UserController extends Controller
 
         $find_user->update(['password' =>  Hash::make($request->password)]);
 
-        return back()->with('successMsg', 'Password has been changed successfully');
+        return back()->with('tSuccessMsg', 'Password has been changed successfully');
     }
 }

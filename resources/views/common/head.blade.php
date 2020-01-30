@@ -14,19 +14,16 @@
     {{--Summernote editor--}}
     <link href="{{ asset('assets/libs/summernote/dist/summernote-bs4.css') }}" rel="stylesheet" />
 
-    {{--Switch button--}}
-    <link href="{{ asset('assets/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css') }}" rel="stylesheet">
-
     <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="{{ asset('css/custom_style.css?v=1.0.0') }}" rel="stylesheet">
 
+    {{--toastr alert--}}
+    <link rel="stylesheet" href="{{ asset('assets/libs/toastr/build/toastr.min.css') }}">
+
     {{--Sweet Alert--}}
     <link href="{{ asset('assets/libs/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
-
-    {{--Switch Button--}}
-    <script src="{{ asset('assets/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js') }}"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

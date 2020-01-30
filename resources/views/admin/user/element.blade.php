@@ -6,7 +6,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon11"><i class="ti-user"></i></span>
                 </div>
-                <input type="text" name="name" value="{{ isset($student->name)?$student->name:old('name') }}" class="form-control" placeholder="Enter Name" aria-describedby="basic-addon11">
+                <input type="text" name="name" value="{{ isset($user->name) ? $user->name : old('name') }}" class="form-control" placeholder="Enter Name" aria-describedby="basic-addon11">
             </div>
             @if($errors->has('name')) <span class="text-danger">{{ $errors->first('name') }}</span> @endif
         </div>
@@ -21,7 +21,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon11"><i class="ti-mobile"></i></span>
                 </div>
-                <input type="text" name="mobile" value="{{ isset($student->name)?$student->name:old('mobile') }}" class="form-control" placeholder="Enter Mobile" required aria-describedby="basic-addon11">
+                <input type="text" name="mobile" value="{{ isset($user->mobile) ? $user->mobile : old('mobile') }}" class="form-control" placeholder="Enter Mobile" required aria-describedby="basic-addon11">
             </div>
             @if($errors->has('mobile')) <span class="text-danger">{{ $errors->first('mobile') }}</span> @endif
         </div>

@@ -16,8 +16,8 @@
                 </li>
 
                 @if(Auth::user()->role_id == 1)
-                    <li class="sidebar-item {{ $cur_controller_name == 'StudentController'?'selected':'' }}">
-                        <a href="{{ route('admin.users.index') }}" class="sidebar-link waves-effect waves-dark sidebar-link {{ $cur_controller_name == 'StudentController'?'active':'' }}" aria-expanded="false">
+                    <li class="sidebar-item {{ $cur_controller_name == 'UserController'?'selected':'' }}">
+                        <a href="{{ route('admin.users.index') }}" class="sidebar-link waves-effect waves-dark sidebar-link {{ $cur_controller_name == 'UserController'?'active':'' }}" aria-expanded="false">
                             <i class="mdi mdi-account-multiple"></i>
                             <span class="hide-menu">Users</span>
                         </a>

@@ -21,16 +21,33 @@
 {{--Summernote editor--}}
 <script src="{{ asset('assets/libs/summernote/dist/summernote-bs4.min.js') }}"></script>
 
-{{--Switch Button--}}
-<script src="{{ asset('assets/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js') }}"></script>
+{{--toastr alert--}}
+<script src="{{ asset('assets/libs/toastr/build/toastr.min.js') }}"></script>
 
 {{--Sweet Alert--}}
 <script src="{{ asset('assets/libs/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
 <script src="{{ asset('assets/libs/sweetalert2/sweet-alert.init.js') }}"></script>
 
 <script>
-    $(function()
-    {
+    $(function(){
+
+         toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            showMethod: 'slideDown',
+            timeOut: 3000
+        };
+
+        //Toastr message
+        @if(session('tSuccessMsg'))
+            toastr.success('{{ session('tSuccessMsg') }}');
+        @endif
+
+        @if(session('tErrorMsg'))
+            toastr.error('{{ session('tSuccessMsg') }}');
+        @endif
+
+
         // Sweet alert
         @if(session('successMsg'))
             Swal.fire("Successful!", "{{ session('successMsg') }}", "success");

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-@include('common.head')
+@include('admin.common.head')
 
 <body>
 <div id="main-wrapper">
 
-    @include('common.topbar')
+    @include('admin.common.topbar')
 
-    @include('common.sidebar')
+    @include('admin.common.sidebar')
 
     <div class="page-wrapper">
 
@@ -22,7 +22,7 @@
 </div>
 </body>
 
-@include('common.footer')
+@include('admin.common.footer')
 
 @yield('custom-js')
 </html>

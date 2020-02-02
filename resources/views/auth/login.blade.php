@@ -31,33 +31,21 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <form class="form-horizontal m-t-20" id="loginform" action="{{ Request::is('admin*') ? route('admin.login') : route('login') }}" method="post">
+                        <form class="form-horizontal m-t-20" id="loginform" action="{{ route('admin.login') }}" method="post">
                             @csrf
                             <div class="input-group mb-3">
 
-                                @if(Request::is('admin*'))
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="ti-email"></i></span>
-                                    </div>
-                                    <input style="font-size: .875rem" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Enter email" aria-label="Email" aria-describedby="basic-addon1" required>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="ti-email"></i></span>
+                                </div>
+                                <input style="font-size: .875rem" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Enter email" aria-label="Email" aria-describedby="basic-addon1" required>
 
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                @else
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="ti-mobile"></i></span>
-                                    </div>
-                                    <input style="font-size: .875rem" type="text" class="form-control form-control-lg @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" placeholder="Enter mobile" aria-label="Email" aria-describedby="basic-addon1" required>
-
-                                    @error('mobile')
+                                @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                @endif
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
                             </div>
 
                             <div class="input-group mb-3">

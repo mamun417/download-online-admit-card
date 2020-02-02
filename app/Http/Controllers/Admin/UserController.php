@@ -167,7 +167,7 @@ class UserController extends Controller
         $number = '01950277082';
         $sms_content = 'Test message content';
 
-        $url = "http://gosms.xyz/api/v1/sendSms?username=$user_name&password=$password&number=$number&sms_content=$sms_content&sms_type=1&masking=non-masking";
+        $url = "https://gosms.xyz/api/v1/sendSms?username=$user_name&password=$password&number=$number&sms_content=$sms_content&sms_type=1&masking=non-masking";
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

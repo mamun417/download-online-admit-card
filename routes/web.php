@@ -3,7 +3,7 @@
 Route::group(['middleware' => ['auth', 'preventBackHistory']], function (){
 
     Route::get('/', function () {
-        return view('home');
+        return view('frontend.home');
     });
 
     Route::get('password/change', 'Admin\UserController@changePassword')->name('password.change');

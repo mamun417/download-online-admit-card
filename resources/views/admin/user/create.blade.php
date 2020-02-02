@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('custom-meta')
     <title>Add User - {{ env('APP_NAME', 'Project Name') }}</title>

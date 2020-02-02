@@ -14,8 +14,6 @@ class UserController extends Controller
 {
     public function index()
     {
-        //$this->sendSMS();
-
         $perPage = request()->perPage ?: 10;
         $keyword = request()->keyword;
 
@@ -61,14 +59,18 @@ class UserController extends Controller
 
         Storage::disk('public')->putFileAs($directory, $admit_card, $admit_name);
 
-
         $password = Str::random(8);
+
+        $send_msg_response = $this->sendSMS($request->mobile, $password);
+
+        //dd($send_msg_response['status']);
 
         User::create([
             'name' => $request['name'],
             'mobile' => $request['mobile'],
             'admit_card' => $admit_name,
-            'password' => Hash::make($password)
+            'password' => Hash::make($password),
+            'send_message' => $send_msg_response['status'] === 'Successful' ? true : false
         ]);
 
         return redirect(route('admin.users.index'))->with('tSuccessMsg', 'User has been added successfully.');
@@ -160,27 +162,20 @@ class UserController extends Controller
         return back()->with('tSuccessMsg', 'Password has been changed successfully');
     }
 
-    public function sendSMS(){
+    public function sendSMS($number, $user_password){
 
-        $user_name = 'mamun';
-        $password = 'banglaDesh1235';
-        $number = '01950277082';
-        $sms_content = 'Test message content';
+        $user_name = 'noman';
+        $password = '111111';
+        $sms_content = "$user_password is your password. You can login now using your mobile and this password";
 
-        $url = "https://gosms.xyz/api/v1/sendSms?username=$user_name&password=$password&number=$number&sms_content=$sms_content&sms_type=1&masking=non-masking";
+        $url = "http://gosms.xyz/api/v1/sendSms?username=$user_name&password=$password&number=$number&sms_content=$sms_content&sms_type=1&masking=non-masking";
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_VERBOSE, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $httpResponse = curl_exec($ch);
+        $url = preg_replace("/ /", "%20", $url);
 
-        dd($httpResponse);
+        $response = file_get_contents($url);
 
-        $response = json_decode($httpResponse, true);
+        $response = json_decode($response, true);
 
-        dd($response);
+        return $response;
     }
 }

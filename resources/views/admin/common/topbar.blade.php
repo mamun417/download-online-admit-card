@@ -40,7 +40,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="{{ isset($client_photo) && !is_null($client_photo) ? $client_photo : asset('assets/images/users/2.jpg') }}" alt="user" class="rounded-circle" width="40">
-                        <span class="m-l-5 font-medium d-none d-sm-inline-block text-secondary">{{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i></span>
+                        <span class="m-l-5 font-medium d-none d-sm-inline-block text-dark">{{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right user-dd">
                                 <span class="with-arrow">
@@ -56,12 +56,10 @@
                             </div>
                         </div>
                         <div class="profile-dis scrollable">
-                           {{-- @if(Auth::user()->role_id == 1)--}}
-                                <a class="dropdown-item" href="{{ route('password.change') }}">
-                                    <i class="ti-key m-r-5 m-l-5"></i> Change Password</a>
-                                <div class="dropdown-divider"></div>
-                           {{-- @endif--}}
-                            <button onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item">
+                            <a class="dropdown-item text-dark" href="{{ route('password.change') }}">
+                                <i class="ti-key m-r-5 m-l-5"></i> Change Password</a>
+                            <div class="dropdown-divider"></div>
+                            <button onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item text-dark">
                                 <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</button>
                             <div class="dropdown-divider"></div>
 

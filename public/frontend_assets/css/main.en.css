@@ -2384,7 +2384,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 header{
     background-color: #51A24C !important;
-    border-bottom: 1px solid #256608;
     z-index: 100;
     padding: 10px 0px;
 }
@@ -2603,3 +2602,10 @@ border-radius: 3px;
     font-size:12px!Important;
 }
 /*DATEPICKER END*/
+.main-content{
+    padding-bottom: 18px;
+    margin-left: 0;
+    margin-right: 0;
+    background: #edf7ed;
+    min-height: 190px;
+}

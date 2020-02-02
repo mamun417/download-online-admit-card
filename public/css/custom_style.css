@@ -1,7 +1,10 @@
 body{
     font-size: 14px!important;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif!important;
-    color: #555!important;
+    color: #000!important;
+}
+table {
+    color: #000!important;
 }
 .table td{
     padding: 7px;

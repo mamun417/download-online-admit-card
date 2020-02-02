@@ -62,6 +62,7 @@
                                             <th>Name</th>
                                             <th>Mobile</th>
                                             <th>Admit Card</th>
+                                            <th class="text-center">Send Message</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -72,7 +73,14 @@
                                             <tr>
                                                 <td>{{ $student->name }}</td>
                                                 <td>{{ $student->mobile }}</td>
-                                                <td>{{ $student->admit_card }}</td>
+                                                <td><a target="_blank" href="{{ Storage::disk('public')->url('uploads/admit-card/'.$student->admit_card) }}">{{ $student->admit_card }}</a></td>
+                                                <td style="text-align: center">
+                                                    @if($student->send_message)
+                                                        <span class="text-success"><i class="fa fa-check"></i></span>
+                                                    @else
+                                                        <span class="text-danger"><i class="fa fa-times"></i></span>
+                                                    @endif
+                                                </td>
                                                 <td style="text-align: center">
                                                     <a href="{{ route('admin.users.edit', $student->id) }}" title="Edit" class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Edit</a>
                                                     <a onclick="deleteRow({{ $student->id }})" href="JavaScript:void(0)" title="Delete" class="btn btn-sm btn-danger">
@@ -112,18 +120,5 @@
         </div>
     </div>
 
-@endsection
-
-@section('custom-js')
-    <script>
-
-        $(function()
-        {
-            $.get('http://gosms.xyz/api/v1/sendSms?username=mamun&password=banglaDesh1235&number=01911183181&sms_content=Message jai kno re&sms_type=1&masking=non-masking', function (response) {
-                console.log(response);
-            });
-        });
-
-    </script>
 @endsection
 

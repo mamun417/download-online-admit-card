@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-    <div class="row" style="padding-bottom: 18px;margin-left: 0;margin-right: 0;background: #edf7ed;">
+    <div class="row main-content">
 
         <div class="col-sm-offset-3 col-sm-6 pm-vertical-menu">
 
-            <h3 class="text-center" style="margin-top: 10px">Download Applicant's Copy</h3>
+            <h3 class="text-center" style="margin-top: 15px">Download Applicant's Copy</h3>
 
             <div class="panel panel-success">
                 <div class="panel-heading">

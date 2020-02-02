@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             //$table->string('email')->unique();
             $table->string('email')->nullable();
             $table->string('admit_card');
+            $table->boolean('send_message')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

@@ -40,41 +40,20 @@
 
         <ul class="sf-menu pm-nav">
             <li><a href=""><i class="fa fa-home"></i> Home</a></li>
-            <li><a href=""><i class="fa fa-lock"></i> Sign In</a></li>
+            @auth
+                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Log Out</a></li>
+            @else
+                <li><a href=""><i class="fa fa-lock"></i> Sign In</a></li>
+            @endauth
         </ul>
 
     </div>
 
-    <!-- Sub-header -->
-    <div class="pm-sub-menu-container">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-6">
-                    <div class="pm-sub-menu-info">
-                    </div>
-                </div>
-
-                <div class="col-lg-7 col-md-7 col-sm-9">
-                    <ul class="pm-sub-navigation">
-
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-    <!-- /Sub-header -->
-
-    <!-- Main navigation -->
-    <header style="position: static">
-
+    <header style="position: static;margin-top: 30px">
         <div class="container">
             <div class="row">
 
                 <div class="col-sm-6">
-
                     <div class="pm-header-logo-container">
                         <a href="/"><img src="https://www.dpdc.org.bd/img/logo.png" style="position: absolute;" class="img-responsive pm-header-logo" alt="DPDC"></a>
                     </div>

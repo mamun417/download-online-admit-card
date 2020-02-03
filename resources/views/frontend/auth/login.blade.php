@@ -21,7 +21,7 @@
 
                         <div class="form-group">
                             <label>User Id</label>
-                            <input type="text" name="mobile" class="form-control input-sm"  placeholder="Enter mobile"/>
+                            <input type="text" name="mobile" value="{{ old('mobile') }}" class="form-control input-sm"  placeholder="Enter mobile"/>
                             @error('mobile')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

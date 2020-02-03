@@ -64,8 +64,6 @@ class UserController extends Controller
 
         $send_msg_response = $this->sendSMS($request->mobile, $password);
 
-        //dd($send_msg_response['status']);
-
         User::create([
             'name' => $request['name'],
             'mobile' => $request['mobile'],
@@ -157,7 +155,7 @@ class UserController extends Controller
             'currentPassword' => 'required',
             'password' => 'required|min:8|confirmed',
             'password_confirmation' => 'required',
-        ]);;
+        ]);
 
         $find_user = User::find(Auth::user()->id);
 

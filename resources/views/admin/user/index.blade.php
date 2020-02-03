@@ -73,7 +73,7 @@
                                             <tr>
                                                 <td>{{ $student->name }}</td>
                                                 <td>{{ $student->mobile }}</td>
-                                                <td><a target="_blank" href="{{ Storage::disk('public')->url('uploads/admit-card/'.$student->admit_card) }}">{{ $student->admit_card }}</a></td>
+                                                <td><a class="text-dark" target="_blank" href="{{ Storage::disk('public')->url('uploads/admit-card/'.$student->admit_card) }}">{{ $student->admit_card }}</a></td>
                                                 <td style="text-align: center">
                                                     @if($student->send_message)
                                                         <span class="text-success"><i class="fa fa-check"></i></span>

@@ -42,8 +42,9 @@
         </div>
 
         <ul class="sf-menu pm-nav">
-            <li><a href=""><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
             @auth
+                <li><a href="{{ route('password.change') }}"><i class="fa fa-lock"></i> Change Password</a></li>
                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Log Out</a></li>
             @else
                 <li><a href=""><i class="fa fa-lock"></i> Sign In</a></li>
@@ -70,12 +71,13 @@
                 <div class="col-sm-6 pm-main-menu" style="padding-top: 0!important;">
                     <nav class="navbar-collapse collapse">
                         <ul class="sf-menu pm-nav">
-                            <li><a href=""><i class="fa fa-home"></i> Home</a></li>
+                            <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
                             @auth
                                 <li><a href="{{ route('password.change') }}"><i class="fa fa-lock"></i> Change Password</a></li>
                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Log Out</a></li>
                             @else
-                                <li><a href=""><i class="fa fa-lock"></i> Sign In</a></li>
+                                <li><a href="{{ route('user.password-recover') }}"><i class="fa fa-key"></i> Recover Password</a></li>
+                                <li><a href="/login"><i class="fa fa-lock"></i> Sign In</a></li>
                             @endauth
                         </ul>
                     </nav>

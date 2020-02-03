@@ -31,8 +31,8 @@ Route::group(['middleware' => ['auth', 'admin', 'preventBackHistory'], 'as' => '
 
     Route::resource('users', 'UserController');
 
-    /*Route::get('password/change', 'UserController@changePassword')->name('password.change');
-    Route::post('password/change', 'UserController@updatePassword')->name('password.change');*/
+    Route::get('password/change', 'UserController@changePassword')->name('password.change');
+    Route::post('password/change', 'UserController@updatePassword')->name('password.change');
 });
 
 

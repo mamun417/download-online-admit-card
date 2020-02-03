@@ -7,6 +7,7 @@ use App\User;
 use Auth;
 use Hash;
 use Illuminate\Http\Request;
+use Route;
 use Storage;
 use Str;
 
@@ -140,7 +141,14 @@ class UserController extends Controller
     }
 
     public function changePassword(){
-        return view('auth.passwords.change-password');
+
+        $route_name = Route::currentRouteName();
+
+        if ($route_name === 'password.change'){
+            return view('frontend.auth.change-password');
+        }else{
+            return view('auth.passwords.change-password');
+        }
     }
 
     public function updatePassword(Request $request){

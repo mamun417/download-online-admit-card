@@ -31,7 +31,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form pt-3" action="{{ route('password.change') }}" method="post" role="form">
+                        <form class="form pt-3" action="{{ route('admin.password.change') }}" method="post" role="form">
                         @csrf
 
                             <div class="col-sm-4">
@@ -48,7 +48,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label>New Password</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon33"><i class="ti-lock"></i></span>

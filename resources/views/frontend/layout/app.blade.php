@@ -21,6 +21,9 @@
     <link href='https://fonts.googleapis.com/css?family=Cantata+One%7COpen+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
     <!-- Development Google Fonts -->
 
+    {{--toastr alert--}}
+    <link rel="stylesheet" href="{{ asset('assets/libs/toastr/build/toastr.min.css') }}">
+
 <!--[if lt IE 9]>
     <script src="{{ asset('frontend_assets/js/plugins/html5shiv.js') }}"></script>
     <script src="{{ asset('frontend_assets/js/plugins/respond.js') }}"></script>
@@ -69,6 +72,7 @@
                         <ul class="sf-menu pm-nav">
                             <li><a href=""><i class="fa fa-home"></i> Home</a></li>
                             @auth
+                                <li><a href="{{ route('password.change') }}"><i class="fa fa-lock"></i> Change Password</a></li>
                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Log Out</a></li>
                             @else
                                 <li><a href=""><i class="fa fa-lock"></i> Sign In</a></li>
@@ -104,6 +108,18 @@
 <script src='{{ asset('frontend_assets/js/bootstrap.min.js') }}'></script>
 <script src='{{ asset('frontend_assets/js/modernizr.custom.js') }}'></script>
 <script src='{{ asset('frontend_assets/js/career.main.js') }}'></script>
+
+{{--toastr alert--}}
+<script src="{{ asset('assets/libs/toastr/build/toastr.min.js') }}"></script>
+
+<script>
+    $(function() {
+        //Toastr message
+        @if(session('tSuccessMsg'))
+            toastr.success('{{ session('tSuccessMsg') }}');
+        @endif
+    });
+</script>
 
 </body>
 </html>

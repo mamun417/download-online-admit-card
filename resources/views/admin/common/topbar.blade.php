@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="profile-dis scrollable">
-                            <a class="dropdown-item text-dark" href="{{ route('password.change') }}">
+                            <a class="dropdown-item text-dark" href="{{ route('admin.password.change') }}">
                                 <i class="ti-key m-r-5 m-l-5"></i> Change Password</a>
                             <div class="dropdown-divider"></div>
                             <button onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item text-dark">

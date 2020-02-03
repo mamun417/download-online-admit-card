@@ -54,11 +54,11 @@ class UserController extends Controller
         $directory = 'uploads/admit-card';
 
         // check is exits directory
-        if (!Storage::disk('public')->exists($directory)){
-            Storage::disk('public')->makeDirectory($directory);
+        if (!Storage::disk('local')->exists($directory)){
+            Storage::disk('local')->makeDirectory($directory);
         }
 
-        Storage::disk('public')->putFileAs($directory, $admit_card, $admit_name);
+        Storage::disk('local')->putFileAs($directory, $admit_card, $admit_name);
 
         $password = Str::random(8);
 
@@ -107,16 +107,16 @@ class UserController extends Controller
             $directory = 'uploads/admit-card';
 
             //delete old admit card
-            if (Storage::disk('public')->exists($directory.'/'.$user->admit_card)){
-                Storage::disk('public')->delete($directory.'/'.$user->admit_card);
+            if (Storage::disk('local')->exists($directory.'/'.$user->admit_card)){
+                Storage::disk('local')->delete($directory.'/'.$user->admit_card);
             }
 
             // check is exits directory
-            if (!Storage::disk('public')->exists($directory)){
-                Storage::disk('public')->makeDirectory($directory);
+            if (!Storage::disk('local')->exists($directory)){
+                Storage::disk('local')->makeDirectory($directory);
             }
 
-            Storage::disk('public')->putFileAs($directory, $admit_card, $admit_name);
+            Storage::disk('local')->putFileAs($directory, $admit_card, $admit_name);
 
             $data['admit_card'] = $admit_name;
         }
@@ -130,8 +130,8 @@ class UserController extends Controller
     {
         $directory = 'uploads/admit-card';
 
-        if (Storage::disk('public')->exists($directory.'/'.$user->admit_card)){
-            Storage::disk('public')->delete($directory.'/'.$user->admit_card);
+        if (Storage::disk('local')->exists($directory.'/'.$user->admit_card)){
+            Storage::disk('local')->delete($directory.'/'.$user->admit_card);
         }
 
         $user->delete();
@@ -183,5 +183,10 @@ class UserController extends Controller
         $response = json_decode($response, true);
 
         return $response;
+    }
+
+    public function downloadAdmitCard(){
+        $admit = 'uploads/admit-card/'.request('admit_card');
+        return Storage::disk('local')->download($admit);
     }
 }

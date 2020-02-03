@@ -38,9 +38,7 @@ class UserController extends Controller
     }
 
     public function downloadAdmitCard(){
-
         $admit = 'uploads/admit-card/'.Auth::user()->admit_card;
-
-        return Storage::disk('public')->download($admit);
+        return Storage::disk('local')->download($admit);
     }
 }

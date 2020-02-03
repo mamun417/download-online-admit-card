@@ -29,13 +29,15 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     Auth::routes(['register' => false]);
 });
 
-Route::group(['middleware' => ['auth', 'admin', 'preventBackHistory'], 'as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::get('/', function () {
         return view('admin.home');
     });
 
     Route::resource('users', 'UserController');
+
+    Route::get('download-admin-card', 'UserController@downloadAdmitCard')->name('download-admit-card');
 
     Route::get('password/change', 'UserController@changePassword')->name('password.change');
     Route::post('password/change', 'UserController@updatePassword')->name('password.change');

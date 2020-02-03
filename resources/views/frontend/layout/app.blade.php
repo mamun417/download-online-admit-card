@@ -47,6 +47,7 @@
                 <li><a href="{{ route('password.change') }}"><i class="fa fa-lock"></i> Change Password</a></li>
                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Log Out</a></li>
             @else
+                <li><a href="{{ route('user.password-recover') }}"><i class="fa fa-key"></i> Recover Password</a></li>
                 <li><a href=""><i class="fa fa-lock"></i> Sign In</a></li>
             @endauth
         </ul>

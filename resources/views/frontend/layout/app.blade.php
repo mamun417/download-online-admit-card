@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -38,7 +38,7 @@
     <div class="pm-mobile-global-menu">
 
         <div class="pm-mobile-global-menu-logo">
-            <a href=""><img src="{{ asset('frontend_assets/image/logo.png') }}" alt="DPDC"></a>
+            <a href=""><img src="{{ asset('frontend_assets/image/logo.png') }}" style="border:none" style="border: none;" alt="DPDC"></a>
         </div>
 
         <ul class="sf-menu pm-nav">
@@ -60,7 +60,7 @@
 
                 <div class="col-sm-6">
                     <div class="pm-header-logo-container">
-                        <a href="/"><img src="https://www.dpdc.org.bd/img/logo.png" style="position: absolute;" class="img-responsive pm-header-logo" alt="DPDC"></a>
+                        <a href="/"><img src="{{ asset('frontend_assets/image/logo.png') }}" style="position: absolute;border: 0!important;" class="img-responsive pm-header-logo" alt="DPDC"></a>
                     </div>
 
                     <div class="pm-header-mobile-btn-container">
@@ -119,7 +119,7 @@
     $(function() {
         //Toastr message
         @if(session('tSuccessMsg'))
-            toastr.success('{{ session('tSuccessMsg') }}');
+        toastr.success('{{ session('tSuccessMsg') }}');
         @endif
     });
 </script>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8534fb85-8c23-42ae-91c0-009da8288cbd" name="demo-admit-card" url="http://dev.exonhost.com/">
+        <fileTransfer host="dev.exonhost.com" port="21" rootFolder="/public_html/demo/admit-card">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

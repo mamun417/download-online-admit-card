@@ -21,7 +21,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon11"><i class="ti-mobile"></i></span>
                 </div>
-                <input type="text" name="mobile" value="{{ isset($user->mobile) ? $user->mobile : old('mobile') }}" class="form-control" placeholder="Enter Mobile" required aria-describedby="basic-addon11">
+                <input type="text" name="mobile" value="{{ isset($user->mobile) ? $user->mobile : old('mobile') }}" class="form-control" placeholder="01700000000" required aria-describedby="basic-addon11">
             </div>
             @if($errors->has('mobile')) <span class="text-danger">{{ $errors->first('mobile') }}</span> @endif
         </div>

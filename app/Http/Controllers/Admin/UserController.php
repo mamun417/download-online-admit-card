@@ -172,7 +172,7 @@ class UserController extends Controller
 
         $user_name = 'noman';
         $password = '111111';
-        $sms_content = "$user_password is your password. You can login now using your mobile and this password";
+        $sms_content = "$user_password is your password. You can login now using your mobile and this password.";
 
         $url = "http://gosms.xyz/api/v1/sendSms?username=$user_name&password=$password&number=$number&sms_content=$sms_content&sms_type=1&masking=non-masking";
 

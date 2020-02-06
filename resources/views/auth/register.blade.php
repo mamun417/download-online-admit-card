@@ -1,7 +1,7 @@
 @extends('auth.layouts.app')
 
 @section('custom-meta')
-    <title>Registration - {{ env('APP_NAME', 'Project Name') }}</title>
+    <title>Registration - {{ config('app.name') }}</title>
 @endsection
 
 @section('content')

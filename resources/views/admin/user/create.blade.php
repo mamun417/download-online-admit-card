@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('custom-meta')
-    <title>Add User - {{ env('APP_NAME', 'Project Name') }}</title>
+    <title>Add User - {{ config('app.name') }}</title>
 @endsection
 
 @section('content')

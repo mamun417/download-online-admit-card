@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('custom-meta')
-    <title>Change Password - {{ env('APP_NAME', 'Project Name') }}</title>
+    <title>Change Password - {{ config('app.name') }}</title>
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('frontend.auth.layout.app')
 
 @section('custom-meta')
-    <title>Recover Password - {{ env('APP_NAME', 'Project Name') }}</title>
+    <title>Recover Password - {{ config('app.name') }}</title>
 @endsection
 
 @section('content')

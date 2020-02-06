@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('custom-meta')
-    <title>Admin Panel - {{ env('APP_NAME', 'Project Name') }}</title>
+    <title>Admin Panel - {{ config('app.name') }}</title>
 @endsection
 
 @section('content')

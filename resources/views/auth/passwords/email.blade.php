@@ -1,7 +1,7 @@
 @extends('auth.layouts.app')
 
 @section('custom-meta')
-    <title>Lost Password Reset - {{ env('APP_NAME', 'Project Name') }}</title>
+    <title>Lost Password Reset - {{ config('app.name') }}</title>
 @endsection
 
 @section('content')

@@ -9,7 +9,7 @@
             <ul id="sidebarnav">
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark" href="/admin" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark" href="{{route('admin.')}}" aria-expanded="false">
                         <i class="mdi mdi-av-timer"></i>
                         <span class="hide-menu">Dashboard</span>
                     </a>

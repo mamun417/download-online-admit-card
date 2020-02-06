@@ -6,13 +6,13 @@
 
 @section('content')
 
-    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url({{ url('assets/images/big/auth-bg.jpg') }}) no-repeat center center;">
+    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url({{ asset('assets/images/big/auth-bg.jpg') }}) no-repeat center center;">
 
         <div class="auth-box">
 
         <div class="logo">
             <span class="db">
-                <img src="{{ url('assets/images/logo_dark.png') }}" alt="Logo" />
+                <img src="{{ asset('assets/images/logo_dark.png') }}" alt="Logo" />
             </span>
             <h5 class="font-medium m-b-20 m-t-15">Recover Password</h5>
             <span>Enter your Email and instructions will be sent to you!</span>

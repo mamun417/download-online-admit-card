@@ -5,12 +5,12 @@
 @endsection
 
 @section('content')
-    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url({{ url('assets/images/big/auth-bg.jpg') }}) no-repeat center center;">
+    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url({{ asset('assets/images/big/auth-bg.jpg') }}) no-repeat center center;">
         <div class="auth-box">
             <div id="loginform">
                 <div class="logo">
                     <span class="db">
-                        <img src="{{ url('assets/images/logo_dark.png') }}" alt="Logo" />
+                        <img src="{{ asset('assets/images/logo_dark.png') }}" alt="Logo" />
                     </span>
                     <h5 class="font-medium m-b-20 m-t-15">Sign In to Your Account</h5>
 

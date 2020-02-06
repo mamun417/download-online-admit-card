@@ -39,7 +39,7 @@
     <div class="pm-mobile-global-menu">
 
         <div class="pm-mobile-global-menu-logo">
-            <a href=""><img src="{{ asset('frontend_assets/image/logo.png') }}" style="border:none" alt="DPDC"></a>
+            <a href=""><img src="{{ asset('frontend_assets/image/logo.png') }}" style="border:none" alt=""></a>
         </div>
 
         <ul class="sf-menu pm-nav">
@@ -61,7 +61,7 @@
 
                 <div class="col-sm-6">
                     <div class="pm-header-logo-container">
-                        <a href="/"><img src="{{ asset('frontend_assets/image/logo.png') }}" style="position: absolute;border: 0!important;" class="img-responsive pm-header-logo" alt="DPDC"></a>
+                        <a href="/"><img src="{{ asset('frontend_assets/image/logo.png') }}" style="position: absolute;border: 0!important;" class="img-responsive pm-header-logo" alt=""></a>
                     </div>
 
                     <div class="pm-header-mobile-btn-container">

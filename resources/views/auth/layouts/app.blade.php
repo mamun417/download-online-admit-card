@@ -18,7 +18,7 @@
     @yield('custom-meta')
 
     <!-- Custom CSS -->
-    <link href="{{ url('dist/css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
 
     {{--Custom Style--}}
     <link href="{{ asset('css/custom_style.css') }}" rel="stylesheet">
@@ -43,15 +43,15 @@
 <!-- ============================================================== -->
 <!-- All Required js -->
 <!-- ============================================================== -->
-<script src="{{ url('assets/libs/jquery/dist/jquery.min.js')  }}"></script>
+<script src="{{ asset('assets/libs/jquery/dist/jquery.min.js')  }}"></script>
 <!-- Bootstrap tether Core JavaScript -->
-<script src="{{ url('assets/libs/popper.js/dist/umd/popper.min.js')  }}"></script>
-<script src="{{ url('assets/libs/bootstrap/dist/js/bootstrap.min.js')  }}"></script>
+<script src="{{ asset('assets/libs/popper.js/dist/umd/popper.min.js')  }}"></script>
+<script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.min.js')  }}"></script>
 <!-- ============================================================== -->
 <!-- This page plugin js -->
 <!-- ============================================================== -->
 
-<script src="{{ url('assets/extra-libs/jqbootstrapvalidation/validation.js')  }}"></script>
+<script src="{{ asset('assets/extra-libs/jqbootstrapvalidation/validation.js')  }}"></script>
 
 {{--Switch Button--}}
 <script src="{{ asset('assets/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js') }}"></script>

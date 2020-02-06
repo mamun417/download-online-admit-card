@@ -9,12 +9,10 @@
                 <a href="" class="logo">
                     <!-- Logo text -->
                     <span class="logo-icon">
-                        <img src="{{ url('assets/images/logo.png') }}" height="22px" width="100%" class="light-logo" alt="homepage" />
+                        <img src="{{ asset('frontend_assets/image/bg-1.png') }}" height="" width="100%" class="" alt="homepage" />
                     </span>
                 </a>
-                <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)" data-sidebartype="mini-sidebar">
-                    <i class="mdi mdi-toggle-switch mdi-toggle-switch-off font-20"></i>
-                </a>
+
             </div>
 
             <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"

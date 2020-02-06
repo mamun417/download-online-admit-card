@@ -1,48 +1,35 @@
-@extends('frontend.layout.app')
+@extends('frontend.auth.layout.app')
 
 @section('custom-meta')
-    <title>Sign In - {{ env('APP_NAME', 'Project Name') }}</title>
+    <title>Login - {{ env('APP_NAME', 'Project Name') }}</title>
 @endsection
 
 @section('content')
-    <div class="row main-content">
+    <form action="{{ route('login') }}" method="post" id="cb-jobseeker-signin">
+        @csrf
 
-        <div class="col-sm-offset-3 col-sm-6 pm-vertical-menu">
-
-            <h3 class="text-center" style="margin-top: 15px">Download Applicant's Copy</h3>
-
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h4 class="panel-title"> <i class="fa fa-lock"></i> Sign In</h4>
-                </div>
-                <div class="panel-body">
-                    <form action="{{ route('login') }}" method="post" id="cb-jobseeker-signin">
-                        @csrf
-
-                        <div class="form-group">
-                            <label>User Id</label>
-                            <input type="text" name="mobile" value="{{ old('mobile') }}" class="form-control input-sm"  placeholder="Enter mobile"/>
-                            @error('mobile')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="password" class="form-control input-sm" placeholder="Password" />
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <button type="submit" class="btn btn-danger btn-sm" style="margin-top: 8px;">Sign In</button>
-                    </form>
-                </div>
-            </div>
+        <div class="form-group">
+            <h3 style="margin: 0">Login</h3>
+            <label></label>
+            <input type="text" name="mobile" class="form-control input-sm"  placeholder="User Mobile No"/>
+            @error('mobile')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
-    </div>
+
+        <div class="form-group">
+            <label></label>
+            <input type="password" name="password" class="form-control input-sm" placeholder="Password" />
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 8px;border:none">Login</button>
+        <a href="{{ route('user.password-recover') }}" type="submit" class="btn btn-default" style="margin-top: 8px;border:none">Recover Password</a>
+    </form>
 @endsection

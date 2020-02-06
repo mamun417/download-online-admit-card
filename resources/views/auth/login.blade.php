@@ -10,7 +10,7 @@
             <div id="loginform">
                 <div class="logo">
                     <span class="db">
-                        <img src="{{ url('assets/images/logo_dark.png') }}" alt="Logo" />
+                        <img src="{{ asset('frontend_assets/image/logo.png') }}" alt="Logo" />
                     </span>
                     <h5 class="font-medium m-b-20 m-t-15">Sign In to Your Account</h5>
 

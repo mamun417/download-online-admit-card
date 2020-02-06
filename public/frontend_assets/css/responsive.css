@@ -671,6 +671,11 @@
     .pm-header-logo-container {
         float: left;
     }
+    #logo-text{
+        width: 80%!important;
+        height: auto;
+        margin-top: 10px;
+    }
 
     .pm-search-field-header {
         margin-bottom: 20px;

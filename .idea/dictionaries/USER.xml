@@ -2,6 +2,7 @@
   <dictionary name="USER">
     <words>
       <w>addon</w>
+      <w>bstsl</w>
       <w>csrf</w>
       <w>enderror</w>
       <w>endsection</w>

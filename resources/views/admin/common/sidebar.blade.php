@@ -9,7 +9,7 @@
             <ul id="sidebarnav">
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark" href="{{ Auth::user()->role_id == 1 ? route('admin.') : '/' }}" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark" href="/admin" aria-expanded="false">
                         <i class="mdi mdi-av-timer"></i>
                         <span class="hide-menu">Dashboard</span>
                     </a>

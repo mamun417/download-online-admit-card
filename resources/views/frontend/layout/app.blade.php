@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="https://www.dpdc.org.bd/ico/favicon.png">
+    <link rel="icon" sizes="57x57" href="{{ asset('frontend_assets/image/android-icon-36x36.png') }}">
 
     @yield('custom-meta')
 
@@ -38,7 +39,7 @@
     <div class="pm-mobile-global-menu">
 
         <div class="pm-mobile-global-menu-logo">
-            <a href=""><img src="{{ asset('frontend_assets/image/logo.png') }}" style="border:none" style="border: none;" alt="DPDC"></a>
+            <a href=""><img src="{{ asset('frontend_assets/image/logo.png') }}" style="border:none" alt="DPDC"></a>
         </div>
 
         <ul class="sf-menu pm-nav">
@@ -66,7 +67,9 @@
                     <div class="pm-header-mobile-btn-container">
                         <button type="button" class="navbar-toggle pm-main-menu-btn" id="pm-mobile-menu-trigger" ><i class="fa fa-bars"></i></button>
                     </div>
-                    <div class="bnr-title" style="margin-left: 45px">Dhaka Power Distribution<br> Company Limited (DPDC)</div>
+                    <div class="bnr-title" style="margin-left: 45px">
+                        <img id="logo-text" src="{{ asset('frontend_assets/image/bg-1.png') }}">
+                    </div>
                 </div>
 
                 <div class="col-sm-6 pm-main-menu" style="padding-top: 0!important;">
@@ -99,7 +102,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 pm-footer-copyright-col">
-                    <p class="text-center">© 2019 Dhaka Power Distribution Company. All Rights Reserved.</p>
+                    <p class="text-center">© {{ date('Y') }} Bangladesh Safe Transit System-BSTSL Limited.</p>
                 </div>
             </div>
         </div>

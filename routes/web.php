@@ -18,8 +18,8 @@ Route::group(['middleware' => ['auth']], function (){
     Route::post('password/change', 'Admin\UserController@updatePassword')->name('password.change');
 });
 
-Route::get('password-recover', 'UserController@showPasswordRecoverForm')->name('user.password-recover');
-Route::post('password-recover', 'UserController@passwordRecover')->name('user.password-recover');
+Route::get('password/recover', 'UserController@showPasswordRecoverForm')->name('user.password-recover');
+Route::post('password/recover', 'UserController@passwordRecover')->name('user.password-recover');
 
 
 

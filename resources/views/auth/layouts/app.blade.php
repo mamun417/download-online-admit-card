@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets/images/favicon.png') }}">
+    <link rel="icon" sizes="57x57" href="{{ asset('frontend_assets/image/android-icon-36x36.png') }}">
 
     {{--Switch button--}}
     <link href="{{ asset('assets/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css') }}" rel="stylesheet">

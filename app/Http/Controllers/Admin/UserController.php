@@ -60,7 +60,7 @@ class UserController extends Controller
 
         Storage::disk('local')->putFileAs($directory, $admit_card, $admit_name);
 
-        $password = Str::random(8);
+        $password = rand(11111111, 99999999);
 
         $send_msg_response = $this->sendSMS($request->mobile, $password);
 

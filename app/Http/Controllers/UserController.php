@@ -26,7 +26,7 @@ class UserController extends Controller
             return back()->with(['mobile' => $request->mobile, 'invalid_mobile' => 'Your mobile number does not exists.']);
         }
 
-        $password = Str::random(8);
+        $password = $password = rand(11111111, 99999999);
 
         $user->update(['password' => Hash::make($password)]);
 
